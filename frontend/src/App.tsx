@@ -12,13 +12,13 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: (
-					<StripeProvider>
+					<>
 						<h1>My Store</h1>
 						<h2>Checkout with Stripe Checkout</h2>
 						<CheckoutButton />
 						<h2>Custom Payment Form</h2>
 						<PaymentForm />
-					</StripeProvider>
+					</>
 				),
 			},
 			{
@@ -34,7 +34,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-	return <RouterProvider router={router} />;
+	return (
+		<StripeProvider>
+			<RouterProvider router={router} />;
+		</StripeProvider>
+	);
 };
 
 export default App;
